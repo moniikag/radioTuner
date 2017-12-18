@@ -1,8 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-const RadioStation = (props) => {
-  const { station } = props
+const RadioStation = ({ station }) => {
 
   return (
     <li>{station.name}</li>
