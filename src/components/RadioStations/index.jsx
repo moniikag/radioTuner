@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 
 import RadioStation from './RadioStation'
+import AddStationButton from './AddStationButton'
+import AddStationForm from './AddStationForm'
 
 class RadioStations extends Component {
 
@@ -31,26 +33,8 @@ class RadioStations extends Component {
         {stations.map(station =>
           <RadioStation key={station.name} station={station} />
         )}
-        {!addFormOpen && <li>
-          <button
-            className="add"
-            onClick={this.toggleForm}
-          >
-            +
-          </button>
-        </li>}
-        {addFormOpen && <li id="form">
-          <button
-            id="close"
-            onClick={this.toggleForm}
-          >
-            x
-          </button>
-          <form>
-            <input id="name" type="text" placeholder="name" />
-            <input type="text" placeholder="frequency" />
-          </form>
-        </li>}
+        {!addFormOpen && <AddStationButton handleClick={this.toggleForm} />}
+        {addFormOpen && <AddStationForm handleClose={this.toggleForm} />}
       </ul>
     )
   }
