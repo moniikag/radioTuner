@@ -55,7 +55,17 @@ button.add {
   background: none;
 }
 
-.radio-stations-list li form input {
+.radio-stations-list li#form {
+  position: relative;
+}
+
+.radio-stations-list li#form button#close {
+  position: absolute;
+  right: 5px;
+  padding: 2px;
+}
+
+.radio-stations-list li#form input {
   display: block;
   margin: 2px;
   width: 150px;
@@ -64,6 +74,6 @@ button.add {
   border-bottom: 1px solid #ccc;
 }
 
-.radio-stations-list li form input#name {
+.radio-stations-list li#form input#name {
   font-size: 20px;
 }
