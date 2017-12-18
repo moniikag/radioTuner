@@ -10,9 +10,11 @@ class RadioStations extends Component {
   }
 
   render() {
+    const { stations } = this.state
+
     return (
       <ul className="radio-stations-list">
-        {this.state.stations.map(station => <li key={station}>{station}</li>)}
+        {stations.map(station => <li key={station}>{station}</li>)}
       </ul>
     )
   }
