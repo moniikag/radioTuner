@@ -1,18 +1,13 @@
 import React, { Component } from 'react'
 
 class RadioStations extends Component {
+
   render() {
+    const stations = ['Top Songs PL', 'Best Hits Ever', 'Classic EU']
+
     return (
       <ul className="radio-stations-list">
-        <li>
-          Top Songs PL
-        </li>
-        <li>
-          Best Hits Ever
-        </li>
-        <li>
-          Classic EU
-        </li>
+        {stations.map(station => <li key={station}>{station}</li>)}
       </ul>
     )
   }
