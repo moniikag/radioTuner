@@ -1,11 +1,17 @@
 import React, { Component } from 'react'
 
+import RadioStation from './RadioStation'
+
 class RadioStations extends Component {
 
   constructor(props) {
     super(props)
     this.state = {
-      stations: ['Top Songs PL', 'Best Hits Ever', 'Classic EU'],
+      stations: [
+        { name: 'Top Songs PL' },
+        { name: 'Best Hits Ever' },
+        { name: 'Classic EU' },
+      ],
     }
   }
 
@@ -14,7 +20,9 @@ class RadioStations extends Component {
 
     return (
       <ul className="radio-stations-list">
-        {stations.map(station => <li key={station}>{station}</li>)}
+        {stations.map(station =>
+          <RadioStation key={station.name} station={station} />
+        )}
       </ul>
     )
   }
