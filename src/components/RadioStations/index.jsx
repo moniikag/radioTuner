@@ -8,9 +8,9 @@ class RadioStations extends Component {
     super(props)
     this.state = {
       stations: [
-        { name: 'Top Songs PL' },
-        { name: 'Best Hits Ever' },
-        { name: 'Classic EU' },
+        { name: 'Top Songs PL', frequency: '99.1' },
+        { name: 'Best Hits Ever', frequency: '97.5' },
+        { name: 'Classic EU', frequency: '109.3' },
       ],
     }
   }

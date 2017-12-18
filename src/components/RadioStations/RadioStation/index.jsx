@@ -4,7 +4,10 @@ import PropTypes from 'prop-types'
 const RadioStation = ({ station }) => {
 
   return (
-    <li>{station.name}</li>
+    <li>
+      <header>{station.name}</header>
+      Frequency:<span className="detail">{station.frequency} FM</span>
+    </li>
   )
 }
 
