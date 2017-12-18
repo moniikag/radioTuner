@@ -25,6 +25,14 @@ class RadioStations extends Component {
     )
   }
 
+  renderButton() {
+    return <AddStationButton handleClick={this.toggleForm} />
+  }
+
+  renderForm() {
+    return <AddStationForm handleClose={this.toggleForm} />
+  }
+
   render() {
     const { addFormOpen, stations } = this.state
 
@@ -33,8 +41,7 @@ class RadioStations extends Component {
         {stations.map(station =>
           <RadioStation key={station.name} station={station} />
         )}
-        {!addFormOpen && <AddStationButton handleClick={this.toggleForm} />}
-        {addFormOpen && <AddStationForm handleClose={this.toggleForm} />}
+        {addFormOpen ? this.renderForm() : this.renderButton()}
       </ul>
     )
   }
