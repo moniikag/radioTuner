@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
 
+import RadioStations from './components/RadioStations'
+
 class App extends Component {
   render() {
     return (
@@ -10,17 +12,7 @@ class App extends Component {
         </header>
         <article className="main-article">
           <section className="main-section">
-            <ul className="radio-stations-list">
-              <li>
-                Top Songs PL
-              </li>
-              <li>
-                Best Hits Ever
-              </li>
-              <li>
-                Classic EU
-              </li>
-            </ul>
+            <RadioStations />
           </section>
         </article>
       </div>
