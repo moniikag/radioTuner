@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 
 class RadioStation extends Component {
 
@@ -9,6 +10,10 @@ class RadioStation extends Component {
       <li>{station.name}</li>
     )
   }
+}
+
+RadioStation.propTypes = {
+  station: PropTypes.object.isRequired,
 }
 
 export default RadioStation
