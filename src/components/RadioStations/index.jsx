@@ -23,6 +23,15 @@ class RadioStations extends Component {
         {stations.map(station =>
           <RadioStation key={station.name} station={station} />
         )}
+        <li>
+          <button className="add"> + </button>
+        </li>
+        <li>
+          <form>
+            <input id="name" type="text" placeholder="name" />
+            <input type="text" placeholder="frequency" />
+          </form>
+        </li>
       </ul>
     )
   }
