@@ -1,15 +1,12 @@
-import React, { Component } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 
-class RadioStation extends Component {
+const RadioStation = (props) => {
+  const { station } = props
 
-  render() {
-    const { station } = this.props
-
-    return (
-      <li>{station.name}</li>
-    )
-  }
+  return (
+    <li>{station.name}</li>
+  )
 }
 
 RadioStation.propTypes = {
