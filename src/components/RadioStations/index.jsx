@@ -46,12 +46,16 @@ class RadioStations extends Component {
     const { addFormOpen, stations } = this.state
 
     return (
-      <ul className="radio-stations-list">
-        {stations.map(station =>
-          <RadioStation key={station.name} station={station} />
-        )}
-        {addFormOpen ? this.renderForm() : this.renderButton()}
-      </ul>
+        <article className="main-article">
+          <section className="main-section">
+            <ul className="radio-stations-list">
+              {stations.map(station =>
+                <RadioStation key={station.name} station={station} />
+              )}
+              {addFormOpen ? this.renderForm() : this.renderButton()}
+            </ul>
+          </section>
+        </article>
     )
   }
 }
