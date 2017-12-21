@@ -19,7 +19,7 @@ class App extends Component {
 
         <Router>
           <article className="main-article">
-            <Route path="/" component={RadioStations}/>
+            <Route path="/" exact={true} component={RadioStations}/>
             <Route path="/station/:id" component={SingleStation}/>
           </article>
         </Router>
