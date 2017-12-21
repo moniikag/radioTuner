@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import {
   BrowserRouter as Router,
   Route,
+  Switch,
 } from 'react-router-dom'
 
 import './App.css'
@@ -19,8 +20,10 @@ class App extends Component {
 
         <Router>
           <article className="main-article">
-            <Route path="/" exact={true} component={RadioStations}/>
-            <Route path="/station/:id" component={SingleStation}/>
+            <Switch>
+              <Route path="/station/:id" component={SingleStation}/>
+              <Route path="/" component={RadioStations}/>
+            </Switch>
           </article>
         </Router>
       </div>
