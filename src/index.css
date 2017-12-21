@@ -26,6 +26,11 @@ body {
   margin: 10px;
 }
 
+.radio-stations-list .station-link {
+  text-decoration: none;
+  color: black;
+}
+
 .radio-stations-list li {
   min-width: 100px;
   padding: 5px 10px;
