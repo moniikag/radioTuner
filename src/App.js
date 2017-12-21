@@ -1,7 +1,13 @@
-import React, { Component } from 'react';
-import './App.css';
+import React, { Component } from 'react'
+import {
+  BrowserRouter as Router,
+  Route,
+} from 'react-router-dom'
+
+import './App.css'
 
 import RadioStations from './components/RadioStations'
+import SingleStation from './components/SingleStation'
 
 class App extends Component {
   render() {
@@ -10,11 +16,13 @@ class App extends Component {
         <header className="App-header">
           <h1 className="App-title">Radio Tuner</h1>
         </header>
-        <article className="main-article">
-          <section className="main-section">
-            <RadioStations />
-          </section>
-        </article>
+
+        <Router>
+          <article className="main-article">
+            <Route path="/" component={RadioStations}/>
+            <Route path="/station/:id" component={SingleStation}/>
+          </article>
+        </Router>
       </div>
     );
   }
