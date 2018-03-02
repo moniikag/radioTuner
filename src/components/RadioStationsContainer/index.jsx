@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
 
 import RadioStation from './RadioStation'
 import AddStationButton from './AddStationButton'
@@ -9,11 +10,6 @@ class RadioStations extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      stations: [
-        { name: 'Top Songs PL', frequency: '99.1' },
-        { name: 'Best Hits Ever', frequency: '97.5' },
-        { name: 'Classic EU', frequency: '109.3' },
-      ],
       addFormOpen: false,
     }
     this.addStation = this.addStation.bind(this)
@@ -43,7 +39,8 @@ class RadioStations extends Component {
   }
 
   render() {
-    const { addFormOpen, stations } = this.state
+    const { addFormOpen } = this.state
+    const { stations } = this.props
 
     return (
       <section className="main-section">
@@ -58,4 +55,10 @@ class RadioStations extends Component {
   }
 }
 
-export default RadioStations
+const mapStateToProps = (state) => {
+  return {
+    stations: Object.values(state.stationsById),
+  }
+}
+
+export default connect(mapStateToProps)(RadioStations)

@@ -7,7 +7,7 @@ import {
 
 import './App.css'
 
-import RadioStations from './components/RadioStations'
+import RadioStations from './components/RadioStationsContainer'
 import SingleStation from './components/SingleStation'
 
 class App extends Component {
