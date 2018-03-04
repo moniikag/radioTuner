@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import RadioStation from './RadioStation'
 import AddStationButton from './AddStationButton'
 import AddStationForm from './AddStationForm'
+import { addRadioStation } from '../../actions/radioStations'
 import { getRadioStations } from '../../reducers'
 
 class RadioStations extends Component {
@@ -24,8 +25,7 @@ class RadioStations extends Component {
   }
 
   addStation(station) {
-    const stations = this.state.stations
-    this.setState({ stations: [...stations, station] })
+    this.props.addStation(station)
   }
 
   renderButton() {
@@ -62,4 +62,10 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps)(RadioStations)
+const mapDispatchToProps = (dispatch) => {
+  return {
+    addStation: (station) => dispatch(addRadioStation(station)),
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(RadioStations)
