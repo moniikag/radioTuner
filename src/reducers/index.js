@@ -1,30 +1,14 @@
-const initialState = {
-  stationsById: {
-    '99.1':  { name: 'Top Songs PL', frequency: '99.1' },
-    '97.5':  { name: 'Best Hits Ever', frequency: '97.5' },
-    '109.3': { name: 'Classic EU', frequency: '109.3' },
-  },
-}
+import { combineReducers } from 'redux'
 
-const radioStations = (state = initialState, action) => {
-  switch(action.type) {
-    case 'ADD_STATION': {
-      const { station } = action.payload
-      return {
-        ...state,
-        stationsById: {
-          ...state.stationsById,
-          [station.frequency]: station
-        }
-      }
-    }
+import radioStations, * as fromRadioStations from './radioStations'
+import users from './users'
 
-    default: {
-      return state
-    }
-  }
-}
+const reducer = combineReducers({
+  radioStations,
+  users,
+})
 
-export default radioStations
+export const getRadioStations = (state) =>
+  fromRadioStations.getRadioStations(state.radioStations)
 
-export const getRadioStations = (state) => Object.values(state.stationsById)
+export default reducer
