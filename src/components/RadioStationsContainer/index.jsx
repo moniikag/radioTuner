@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import RadioStation from './RadioStation'
 import AddStationButton from './AddStationButton'
 import AddStationForm from './AddStationForm'
+import { getRadioStations } from '../../reducers'
 
 class RadioStations extends Component {
 
@@ -57,7 +58,7 @@ class RadioStations extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    stations: Object.values(state.stationsById),
+    stations: getRadioStations(state),
   }
 }
 
