@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 
 import RadioStation from './RadioStation'
@@ -7,7 +8,7 @@ import AddStationForm from './AddStationForm'
 import { addRadioStation } from '../../actions/radioStations'
 import { getRadioStations } from '../../reducers'
 
-class RadioStations extends Component {
+export class RadioStations extends Component {
 
   constructor(props) {
     super(props)
@@ -54,6 +55,14 @@ class RadioStations extends Component {
       </section>
     )
   }
+}
+
+RadioStations.defaultProps = {
+  stations: [],
+}
+
+RadioStations.propTypes = {
+  stations: PropTypes.array,
 }
 
 const mapStateToProps = (state) => {
