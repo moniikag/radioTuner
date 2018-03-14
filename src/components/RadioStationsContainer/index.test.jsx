@@ -1,5 +1,6 @@
 import React from 'react'
-import { shallow, mount } from 'enzyme'
+import { shallow, mount, render } from 'enzyme'
+import toJSON from 'enzyme-to-json'
 
 import { RadioStations } from './index'
 import { MemoryRouter } from 'react-router-dom'
@@ -60,6 +61,33 @@ describe('RadioStations', () => {
       expect(call.frequency).toEqual('99.1')
       expect(call.id).not.toBe(undefined)
       expect(call.id.length).toBe(36)
+    })
+  })
+
+  describe('snapshots', () => {
+    it('matches shallow snapshot', () => {
+      const wrapper = shallow(<RadioStations/>)
+      expect(toJSON(wrapper)).toMatchSnapshot()
+    })
+
+    it('matches mount snapshot', () => {
+      const wrapper = mount(
+        <MemoryRouter>
+          <RadioStations/>
+        </MemoryRouter>
+      )
+      const button = wrapper.find(AddStationButton).find('button')
+      button.simulate('click')
+      expect(toJSON(wrapper.find(RadioStations))).toMatchSnapshot()
+    })
+
+    it('matches render snapshot', () => {
+      const wrapper = render(
+        <MemoryRouter>
+          <RadioStations stations={[{ name: 'X', frequency: '121.1'}]}/>
+        </MemoryRouter>
+      )
+      expect(toJSON(wrapper)).toMatchSnapshot()
     })
   })
 })

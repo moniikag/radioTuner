@@ -1,0 +1,128 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RadioStations snapshots matches mount snapshot 1`] = `
+<RadioStations
+  stations={Array []}
+>
+  <article
+    className="main-article"
+  >
+    <section
+      className="main-section"
+    >
+      <ul
+        className="radio-stations-list"
+      >
+        <AddStationForm
+          handleClose={[Function]}
+          handleSubmit={[Function]}
+        >
+          <li
+            id="form"
+          >
+            <button
+              id="close"
+              onClick={[Function]}
+            >
+              x
+            </button>
+            <form
+              onSubmit={[Function]}
+            >
+              <input
+                id="name"
+                onChange={[Function]}
+                placeholder="name"
+                type="text"
+              />
+              <input
+                onChange={[Function]}
+                placeholder="frequency"
+                type="text"
+              />
+              <button
+                style={
+                  Object {
+                    "visibility": "hidden",
+                  }
+                }
+                type="submit"
+              />
+            </form>
+          </li>
+        </AddStationForm>
+      </ul>
+    </section>
+    <Route
+      component={[Function]}
+      path="/stations/:stationId"
+    />
+  </article>
+</RadioStations>
+`;
+
+exports[`RadioStations snapshots matches render snapshot 1`] = `
+<article
+  class="main-article"
+>
+  <section
+    class="main-section"
+  >
+    <ul
+      class="radio-stations-list"
+    >
+      <li>
+        <button
+          class="delete-station"
+        >
+          x
+        </button>
+        <a
+          aria-current="false"
+          class="station-link"
+          href="/stations/undefined"
+        >
+          <header>
+            X
+          </header>
+        </a>
+        Frequency:
+        <span
+          class="station-detail"
+        >
+          121.1 FM
+        </span>
+      </li>
+      <li>
+        <button
+          id="add"
+        >
+          +
+        </button>
+      </li>
+    </ul>
+  </section>
+</article>
+`;
+
+exports[`RadioStations snapshots matches shallow snapshot 1`] = `
+<article
+  className="main-article"
+>
+  <section
+    className="main-section"
+  >
+    <ul
+      className="radio-stations-list"
+    >
+      <AddStationButton
+        handleClick={[Function]}
+      />
+    </ul>
+  </section>
+  <Route
+    component={[Function]}
+    path="/stations/:stationId"
+  />
+</article>
+`;
