@@ -1,18 +1,22 @@
+export const FETCH_USERS_REQUEST = 'FETCH_USERS_REQUEST'
+export const FETCH_USERS_SUCCESS = 'FETCH_USERS_SUCCESS'
+export const FETCH_USERS_ERROR = 'FETCH_USERS_ERROR'
+
 const byId = (data = []) => {
   return data.reduce((acc, element) => ({ ...acc, [element.id]: element }), {})
 }
 
 const fetchUsersRequest = () => ({
-  type: 'FETCH_USERS_REQUEST',
+  type: FETCH_USERS_REQUEST,
 })
 
 const fetchUsersSuccess = (users) => ({
-  type: 'FETCH_USERS_SUCCESS',
+  type: FETCH_USERS_SUCCESS,
   payload: { users: byId(users) }
 })
 
 const fetchUsersError = (error) => ({
-  type: 'FETCH_USERS_ERROR',
+  type: FETCH_USERS_ERROR,
   payload: { error }
 })
 

@@ -1,3 +1,9 @@
+import {
+  FETCH_USERS_REQUEST,
+  FETCH_USERS_SUCCESS,
+  FETCH_USERS_ERROR,
+} from '../../actions/users'
+
 const initialState = {
   byId:     {},
   fetching: null,
@@ -7,7 +13,7 @@ const initialState = {
 
 const users = (state = initialState, action) => {
   switch(action.type) {
-    case 'FETCH_USERS_REQUEST': {
+    case FETCH_USERS_REQUEST: {
       return {
         ...state,
         fetching: true,
@@ -15,7 +21,7 @@ const users = (state = initialState, action) => {
       }
     }
 
-    case 'FETCH_USERS_SUCCESS': {
+    case FETCH_USERS_SUCCESS: {
       return {
         ...state,
         byId: action.payload.users,
@@ -25,7 +31,7 @@ const users = (state = initialState, action) => {
       }
     }
 
-    case 'FETCH_USERS_ERROR': {
+    case FETCH_USERS_ERROR: {
       return {
         ...state,
         fetching: false,
