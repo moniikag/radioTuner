@@ -18,3 +18,5 @@ const users = (state = initialState, action) => {
 }
 
 export default users
+
+export const getUsers = (state) => Object.values(state.byId)

@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
 import { fetchUsers } from '../../actions/users'
+import { getUsers } from '../../reducers'
 import './styles.css'
 
 class Users extends Component {
@@ -32,7 +33,7 @@ class Users extends Component {
 }
 
 const mapStateToProps = (state) => ({
-  users: Object.values(state.users.byId)
+  users: getUsers(state)
 })
 
 const mapDispatchToProps = {
