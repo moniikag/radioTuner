@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
 import { fetchUsers } from '../../actions/users'
-import { getUsers } from '../../reducers'
+import { getUsers, getUsersFetchingStatus } from '../../reducers'
 import './styles.css'
 
 class Users extends Component {
@@ -19,22 +19,40 @@ class Users extends Component {
     )
   }
 
+  renderConent() {
+    return (
+      <ul id="users-list">
+        {this.renderUsers()}
+      </ul>
+    )
+  }
+
+  renderLoading() {
+    return (
+      <div>Loading...</div>
+    )
+  }
+
   render() {
+    const { fetching } = this.props
     return (
       <article className="main-article">
         <section className="main-section">
-          <ul id="users-list">
-            {this.renderUsers()}
-          </ul>
+          {fetching ? this.renderLoading() : this.renderConent()}
         </section>
       </article>
     )
   }
 }
 
-const mapStateToProps = (state) => ({
-  users: getUsers(state)
-})
+const mapStateToProps = (state) => {
+  const status = getUsersFetchingStatus(state)
+  return {
+    users: getUsers(state),
+    fetching: status.fetching,
+    fetched: status.fetched,
+  }
+}
 
 const mapDispatchToProps = {
   fetchUsers

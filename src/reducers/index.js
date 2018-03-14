@@ -17,4 +17,7 @@ export const getRadioStation = (state, stationId) =>
 export const getUsers = (state) =>
   fromUsers.getUsers(state.users)
 
+export const getUsersFetchingStatus = (state) =>
+  fromUsers.getUsersFetchingStatus(state.users)
+
 export default reducer
