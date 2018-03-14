@@ -6,7 +6,7 @@ import AddStationButton from './AddStationButton'
 import AddStationForm from './AddStationForm'
 import RadioStation from './RadioStation'
 import SingleStation from '../SingleStation'
-import { addRadioStation } from '../../actions/radioStations'
+import { addRadioStation, deleteRadioStation } from '../../actions/radioStations'
 import { getRadioStations } from '../../reducers'
 import './styles.css'
 
@@ -31,9 +31,13 @@ class RadioStations extends Component {
   }
 
   renderRadioStations() {
-    const { stations } = this.props
+    const { deleteRadioStation, stations } = this.props
     return stations.map(station =>
-      <RadioStation key={station.name} station={station}/>
+      <RadioStation
+        handleDelete={deleteRadioStation}
+        key={station.name}
+        station={station}
+      />
     )
   }
 
@@ -78,6 +82,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = {
   addRadioStation,
+  deleteRadioStation,
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(RadioStations)

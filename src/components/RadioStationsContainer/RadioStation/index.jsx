@@ -4,11 +4,17 @@ import { NavLink } from 'react-router-dom'
 
 import './styles.css'
 
-const RadioStation = ({ station }) => {
+const RadioStation = ({ handleDelete, station }) => {
   const urlStation = station.name.split(' ').join('_')
 
   return (
     <li>
+      <button
+        className="delete-station"
+        onClick={() => handleDelete(station.frequency)}
+      >
+        x
+      </button>
       <NavLink
         activeClassName="selected"
         className="station-link"

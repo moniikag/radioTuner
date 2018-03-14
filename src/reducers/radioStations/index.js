@@ -19,6 +19,15 @@ const radioStations = (state = initialState, action) => {
       }
     }
 
+    case 'DELETE_STATION': {
+      const { id } = action.payload
+      const { [id]: deleted, ...other } = state.stationsById
+      return {
+        ...state,
+        stationsById: other,
+      }
+    }
+
     default: {
       return state
     }
