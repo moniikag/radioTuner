@@ -8,6 +8,17 @@ const initialState = {
 
 const radioStations = (state = initialState, action) => {
   switch(action.type) {
+    case 'ADD_STATION': {
+      const { station } = action.payload
+      return {
+        ...state,
+        stationsById: {
+          ...state.stationsById,
+          [station.frequency]: station
+        }
+      }
+    }
+
     default: {
       return state
     }
