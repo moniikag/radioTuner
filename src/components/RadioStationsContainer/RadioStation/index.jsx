@@ -5,20 +5,19 @@ import { NavLink } from 'react-router-dom'
 import './styles.css'
 
 const RadioStation = ({ handleDelete, station }) => {
-  const urlStation = station.name.split(' ').join('_')
 
   return (
     <li>
       <button
         className="delete-station"
-        onClick={() => handleDelete(station.frequency)}
+        onClick={() => handleDelete(station.id)}
       >
         x
       </button>
       <NavLink
         activeClassName="selected"
         className="station-link"
-        to={`/stations/${urlStation}`}
+        to={`/stations/${station.id}`}
       >
         <header>{station.name}</header>
       </NavLink>

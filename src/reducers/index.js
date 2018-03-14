@@ -11,4 +11,7 @@ const reducer = combineReducers({
 export const getRadioStations = (state) =>
   fromRadioStations.getRadioStations(state.radioStations)
 
+export const getRadioStation = (state, stationId) =>
+  fromRadioStations.getRadioStation(state.radioStations, stationId)
+
 export default reducer

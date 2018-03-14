@@ -1,11 +1,12 @@
 import React, { Component } from 'react'
+import uuidv1 from 'uuid/v1'
 import { Route } from 'react-router-dom'
 import { connect } from 'react-redux'
 
 import AddStationButton from './AddStationButton'
 import AddStationForm from './AddStationForm'
 import RadioStation from './RadioStation'
-import SingleStation from '../SingleStation'
+import SingleStation from '../SingleStationContainer'
 import { addRadioStation, deleteRadioStation } from '../../actions/radioStations'
 import { getRadioStations } from '../../reducers'
 import './styles.css'
@@ -27,7 +28,8 @@ class RadioStations extends Component {
   }
 
   addStation(station) {
-    this.props.addRadioStation(station)
+    const id = uuidv1()
+    this.props.addRadioStation({ ...station, id })
   }
 
   renderRadioStations() {
