@@ -11,7 +11,7 @@ import { addRadioStation, deleteRadioStation } from '../../actions/radioStations
 import { getRadioStations } from '../../reducers'
 import './styles.css'
 
-class RadioStations extends Component {
+export class RadioStations extends Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -74,6 +74,10 @@ class RadioStations extends Component {
       </article>
     )
   }
+}
+
+RadioStations.defaultProps = {
+  stations: [],
 }
 
 const mapStateToProps = (state) => {
