@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Route } from 'react-router-dom'
+import { connect } from 'react-redux'
 
 import AddStationButton from './AddStationButton'
 import AddStationForm from './AddStationForm'
@@ -12,11 +13,6 @@ class RadioStations extends Component {
     super(props)
     this.state = {
       addItemFormOpen: false,
-      stations: [
-        { name: 'Top Song Pl', frequency: '99.1' },
-        { name: 'Best Hits Ever', frequency: '97.5' },
-        { name: 'Classic EU', frequency: '109.3' },
-      ],
     }
     this.toggleForm = this.toggleForm.bind(this)
     this.addStation = this.addStation.bind(this)
@@ -35,7 +31,7 @@ class RadioStations extends Component {
   }
 
   renderRadioStations() {
-    const { stations } = this.state
+    const { stations } = this.props
     return stations.map(station =>
       <RadioStation key={station.name} station={station}/>
     )
@@ -74,4 +70,10 @@ class RadioStations extends Component {
   }
 }
 
-export default RadioStations
+const mapStateToProps = (state) => {
+  return {
+    stations: Object.values(state.stationsById),
+  }
+}
+
+export default connect(mapStateToProps)(RadioStations)

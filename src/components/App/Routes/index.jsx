@@ -1,7 +1,7 @@
 import React from 'react'
 import { Route, Switch } from 'react-router-dom'
 
-import RadioStations from '../../RadioStations'
+import RadioStations from '../../RadioStationsContainer'
 import Users from '../../Users'
 
 const Routes = () => {
